@@ -1,0 +1,20 @@
+[
+    {
+        "key": 1,
+        "paquete": "Paquete Estandar",
+        "imagen": "/Images/images2.jpeg",
+        "fecha": "2022-11-09"
+    },
+    {
+        "key": 2,
+        "imagen": "/Images/images1.jpeg",
+        "paquete": "Paquete Especial",
+        "fecha": "2022-11-09"
+    },
+    {
+        "key": 3,
+        "paquete": "Paquete Completo",
+        "fecha": "2022-11-09",
+        "imagen": "/Images/images4.jpeg"
+    }
+]

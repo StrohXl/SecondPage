@@ -1,0 +1,51 @@
+@media (min-width:350px) and (max-width:650px){
+    .burger{
+        display: block !important;
+        
+    }
+    .Menu{
+        display: none !important;
+    }
+    
+.menuResponsive{
+    display: flex !important;
+}
+
+    .Head{
+        width: 100% !important;
+    }
+    .ant-layout-header{
+        width: 100% !important;
+    }
+    .titulo0{
+        margin-top: 12px;
+        position: absolute !important;
+        margin-left: 0 !important;
+        left: 0 !important;
+    }
+}
+@media (min-width:651px) and (max-width:1000px){
+    .burger{
+        display: block !important;
+        
+    }
+    .Menu{
+        display: none !important;
+    }
+    
+.menuResponsive{
+    display: flex !important;
+}
+
+    .Head{
+        width: 100% !important;
+    }
+    .ant-layout-header{
+        width: 100% !important;
+    }
+    .titulo0{
+        position: absolute !important;
+        margin-left: 0 !important;
+        left: 0 !important;
+    }
+}

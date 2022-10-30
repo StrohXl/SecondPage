@@ -1,0 +1,28 @@
+footer{
+    width: 100% !important;
+    text-align: center;
+}
+header{
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+}
+.ant-layout-content{
+   width: 100% !important;
+   padding-top: 64px;
+    background-image: url(../../../public/Images/Playas-1.jpg);
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+.content-crumb{
+    margin-left: 50px;
+}
+.Nuevo{
+    margin-left: 100px;
+}
+.inicio{
+    cursor: pointer !important;
+}
+.inicio:hover{
+    color: #000 !important;
+}

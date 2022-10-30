@@ -1,0 +1,24 @@
+@media (min-width:350px) and (max-width:650px){
+     .serviciosContenido{
+        min-width: 510px !important;
+     }
+    
+    .serviciosFooter{
+        min-width: 510px !important;
+     }
+     .paquetesContenido{
+        min-width: 510px !important;
+     }
+    
+    .paquetesFooter{
+        min-width: 510px !important;
+     }
+     .listaContenido{
+        min-width: 651px !important;
+     }
+    
+    .listaFooter{
+        min-width: 651px !important;
+     }
+
+}

@@ -1,0 +1,32 @@
+.welcome{
+    height: 480px;
+}
+.content-title{
+    margin: 50px 50px;
+    width: 50% !important;
+
+}
+ .ant-modal-title{
+    text-align: center !important;
+}
+
+.arrow{
+    transform: rotate(65deg) !important;
+}
+.arrow:hover{
+    color: rgb(59, 130, 223) !important;
+}
+.iniciar{
+
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.iniciar span{
+    font-size: 18px;
+}
+
+ .welcomeCol{
+    text-align: center;
+}
