@@ -6,7 +6,7 @@ import {HomeOutlined} from '@ant-design/icons'
 
 
 
-const crumb = () => {
+const Crumb = () => {
     let navigate=useNavigate()
     const location = useLocation()
     const [nameLocation, setNameLocation] = useState('Inicio')
@@ -31,4 +31,4 @@ const crumb = () => {
     );
 };
 
-export default crumb;
+export default Crumb;

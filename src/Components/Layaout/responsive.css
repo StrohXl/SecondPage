@@ -2,7 +2,9 @@
      .serviciosContenido{
         min-width: 510px !important;
      }
-    
+     .welcomeResponsive{
+      display: block;
+     }
     .serviciosFooter{
         min-width: 510px !important;
      }
@@ -20,5 +22,31 @@
     .listaFooter{
         min-width: 651px !important;
      }
+
+}
+@media (min-width:1000px) {
+
+   .serviciosContenido{
+      min-width: 510px !important;
+   }
+  
+  .serviciosFooter{
+      min-width: 510px !important;
+   }
+   .paquetesContenido{
+      min-width: 510px !important;
+      height: 100% ;
+   }
+  
+  .paquetesFooter{
+      min-width: 510px !important;
+   }
+   .listaContenido{
+      min-width: 651px !important;
+   }
+  
+  .listaFooter{
+      min-width: 651px !important;
+   }
 
 }

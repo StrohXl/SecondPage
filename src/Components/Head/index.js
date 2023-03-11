@@ -4,8 +4,6 @@ import './styles.css'
 import './responsive.css'
 import { useNavigate } from 'react-router-dom';
 import { GiHamburgerMenu } from 'react-icons/gi'
-
-
 const Head = () => {
     let navigate = useNavigate()
     const { Title } = Typography
@@ -13,10 +11,6 @@ const Head = () => {
     const menuResponsive = () => {
         setOpen(!open)
     }
-
-
-
-
     return (
         <div className='Head'>
             <Title level={3} className='titulo0'>Parque nacional <span className='titulo1'>MOCHIMA</span></Title>

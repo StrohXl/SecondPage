@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {loadServices,saveServices,updateServices} from './services'
-import { Table, Image, Button,Space } from 'antd'
+import { Table, Avatar, Button,Space } from 'antd'
 import ModalServices from '../Modal/modalServices'
 
 import './styles.css'
@@ -18,7 +18,7 @@ const Services = () => {
       
     const NewServices = async (payload) => {
           setLlave(llave+1)
-   
+      
         const newServices = await saveServices(payload);
         console.log(newServices)
         newServices.key = llave
@@ -33,10 +33,10 @@ const Services = () => {
         const auxData = [...data] 
         console.log(auxData)
         auxData.unshift({
-          ...newServices,
-                 
+          ...newServices,                 
         })
         setData(auxData)
+        console.log(data)
        
         
    
@@ -103,11 +103,11 @@ const Services = () => {
     const columns=[
         {
             title: "Vista",
-            key: "imagen",
+            key: "img",
             width: '200px',
-            dataIndex: 'imagen',
-            render: (_,{imagen}) =>(
-             <Image  className='imagen' src={imagen}/>
+            dataIndex: 'img',
+            render: (data, record) =>(
+             <Avatar  className='imagen' src={record.img}/>
             ),
         },
        

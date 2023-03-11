@@ -22,6 +22,7 @@ header{
 }
 .inicio{
     cursor: pointer !important;
+    height: 100%;
 }
 .inicio:hover{
     color: #000 !important;

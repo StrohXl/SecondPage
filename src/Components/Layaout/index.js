@@ -13,7 +13,7 @@ const Layaout = (props) => {
     let foter = 'iniciooooo'
     if (location.pathname === "/") {
         cont = "inicio"
-        foter = "inicio"
+        foter = "inicioFooter"
  
     }
     else if (location.pathname === "/Services") {

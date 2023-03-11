@@ -1,22 +1,18 @@
 import React,{useState,useEffect} from 'react';
-import {Form, Input, Modal,Select } from 'antd';
-import paquete1 from '../../Images/images1.jpeg'
-import paquete2 from '../../Images/images2.jpeg'
-import paquete3 from '../../Images/images3.jpeg'
-import paquete4 from '../../Images/images4.jpeg'
-import paquete5 from '../../Images/paquete2.jpg'
-import paquete6 from '../../Images/paquete3.jpg'
-import paquete7 from '../../Images/paquetes5.jpeg'
+import { Upload, Form, Input, Modal, message } from 'antd';
+import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 
 const ModalPackages = ({abierto,cerrado, employe, ok}) => {
   const [form] = Form.useForm()
   const [dataDefault, setDataDefault] = useState(null)
+  const [imageUrl, setImageUrl] = useState(null);
+	const [loading, setLoading] = useState(false);
   const onFormDataChange = (data) => {
 		setDataDefault(data)
 	};
   const onOk = async () => {
 		form.validateFields().then((values) => {
-			ok(values)
+      ok({ ...values, img: imageUrl })
 			setDataDefault(null)
 		})
 	}
@@ -24,24 +20,61 @@ const ModalPackages = ({abierto,cerrado, employe, ok}) => {
 		if (abierto) {
 			if (employe === null) {
 				form.resetFields()
+        setDataDefault(null)
+        setImageUrl(null)
 			}
       else{
         setDataDefault({...employe})
         form.setFieldsValue({ ...employe })
-
+        setImageUrl(employe.img)
       }
+      
 		}
 	}, [abierto])
-
-
-
+	const uploadButton = (
+		<div>
+			{loading ? <LoadingOutlined /> : <PlusOutlined />}
+			<div
+				style={{
+					marginTop: 8,
+				}}
+			>
+				Upload
+			</div>
+		</div>
+	);
+  const getBase64 = (img, callback) => {
+    const reader = new FileReader();
+    reader.addEventListener('load', () => callback(reader.result));
+    reader.readAsDataURL(img);
+  };
+  const beforeUpload = (file) => {
+    const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
+    if (!isJpgOrPng) {
+      message.error('You can only upload JPG/PNG file!');
+    }
+    const isLt2M = file.size / 1024 / 1024 < 2;
+    if (!isLt2M) {
+      message.error('Image must smaller than 2MB!');
+    }
+    return false;
+  };
+  const handleChangeImg = (info) => {
+    getBase64(info.fileList[0].originFileObj, (url) => {
+      setLoading(false);
+      setImageUrl(url);
+    });
+    if (info.file.status === 'uploading') {
+      setLoading(true);
+      return;
+    }
+  };
     return (
        <Modal 
        title={employe == null? 'Nuevo Paquete': 'Datos del Paquete'}
        open={abierto}
        onOk={onOk}
        onCancel={cerrado}
-    
        >    
        <Form 
        layout={"vertical"}
@@ -60,18 +93,30 @@ const ModalPackages = ({abierto,cerrado, employe, ok}) => {
         ]}>
             <Input/>
         </Form.Item>
-        <Form.Item label="Seleccione una imagen"
-          name="imagen">
-          <Select style={{ width: 180 }}>
-            <Select.Option value="../../Images/images1.jpeg"><img className='imagenSeleccionada' src={paquete1} /></Select.Option>
-            <Select.Option value="../../Images/images2.jpeg"><img className='imagenSeleccionada' src={paquete2} /></Select.Option>
-            <Select.Option value='../../Images/images3.jpeg'><img className='imagenSeleccionada' src={paquete3} /></Select.Option>
-            <Select.Option value='../../Images/images4.jpeg'><img className='imagenSeleccionada' src={paquete4} /></Select.Option>
-            <Select.Option value='../../Images/paquete2.jpg'><img className='imagenSeleccionada' src={paquete5} /></Select.Option>
-            <Select.Option value='../../Images/paquete3.jpg'><img className='imagenSeleccionada' src={paquete6} /></Select.Option>
-            <Select.Option value='../../Images/paquetes5.jpeg'><img className='imagenSeleccionada' src={paquete7} /></Select.Option>
   
-          </Select>
+        <Form.Item label="Seleccione una imagen">
+          <Upload
+            name="avatar"
+            listType="picture-card"
+            className="avatar-uploader"
+            showUploadList={false}
+            beforeUpload={beforeUpload}
+            onChange={handleChangeImg}
+            maxCount={1}
+          >
+            {imageUrl ? (
+              <img
+                src={imageUrl}
+                alt="avatar"
+                style={{
+                  width: '100%',
+                }}
+              />
+            ) : (
+              uploadButton
+            )}
+          </Upload>
+
         </Form.Item>
        </Form>
        </Modal>
