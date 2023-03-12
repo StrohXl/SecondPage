@@ -11,11 +11,10 @@ const Crumb = () => {
     const location = useLocation()
     const [nameLocation, setNameLocation] = useState('Inicio')
     const options = [
-        { name: 'Inicio', path: '/' },
-        { name: 'Servicios', path: '/Services' },
-        { name: 'Paquetes', path: '/Packages' },
-        { name: 'Lista', path: '/List' },
-        { name: 'prueba', path: '/prueba' },
+        { name: 'Inicio', path: '/SecondPage/' },
+        { name: 'Servicios', path: '/SecondPage/Services' },
+        { name: 'Paquetes', path: '/SecondPage/Packages' },
+        { name: 'Lista', path: '/SecondPage/List' },
     ]
     useEffect(() => {
         const option = options.find((item) => location.pathname === item.path)
@@ -23,7 +22,7 @@ const Crumb = () => {
     }, [location])
     return (
         <Breadcrumb>
-            <Breadcrumb.Item className='inicio'disabled onClick={()=>navigate('/')}><HomeOutlined/> Inicio</Breadcrumb.Item>
+            <Breadcrumb.Item className='inicio'disabled onClick={()=>navigate('/SecondPage/')}><HomeOutlined/> Inicio</Breadcrumb.Item>
             {nameLocation !== "Inicio" && ( 
             <Breadcrumb.Item>{nameLocation}</Breadcrumb.Item>
             )}

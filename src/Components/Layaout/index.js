@@ -11,17 +11,17 @@ const Layaout = (props) => {
     const [clase,setClase]=useState('')
     let cont = "ini"
     let foter = 'iniciooooo'
-    if (location.pathname === "/") {
+    if (location.pathname === "/SecondPage/") {
         cont = "inicio"
         foter = "inicioFooter"
  
     }
-    else if (location.pathname === "/Services") {
+    else if (location.pathname === "/SecondPage/Services") {
         cont = "serviciosContenido"
         foter = "serviciosFooter"
        
     }
-    else if (location.pathname === "/Packages") {
+    else if (location.pathname === "/SecondPage/Packages") {
         cont = "paquetesContenido"
         foter = "paquetesFooter"
        

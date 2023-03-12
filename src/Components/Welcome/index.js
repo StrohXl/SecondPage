@@ -29,18 +29,18 @@ const Welcome = () => {
                     
                         <Row justify='around'>
                             <Col className='welcomeCol' span={7}>
-                                <Button shape='round' onClick={() => { setOpen(false); navigate('/Services') }} >
+                                <Button shape='round' onClick={() => { setOpen(false); navigate('/SecondPage/Services') }} >
                                     Servicios
                                 </Button>
                             </Col>
                             <Col className='welcomeCol' span={10}>
-                                <Button shape='round' onClick={() => { setOpen(false); navigate('/List') }} >
+                                <Button shape='round' onClick={() => { setOpen(false); navigate('/SecondPage/List') }} >
                                     Lista de reservaciones
                                 </Button>
                             </Col>
                     
                             <Col className='welcomeCol' span={7}>
-                                <Button shape='round' onClick={() => { setOpen(false); navigate('/Packages') }}>
+                                <Button shape='round' onClick={() => { setOpen(false); navigate('/SecondPage/Packages') }}>
                                     Paquetes
                                 </Button>
                             </Col>
