@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/SecondPage/static/css/main.10b1c926.css",
+    "main.js": "/SecondPage/static/js/main.4897c9f9.js",
+    "static/js/787.7d3d693b.chunk.js": "/SecondPage/static/js/787.7d3d693b.chunk.js",
+    "static/media/Playas-1.jpg": "/SecondPage/static/media/Playas-1.14aa16cc0bed5ce16350.jpg",
+    "index.html": "/SecondPage/index.html",
+    "main.10b1c926.css.map": "/SecondPage/static/css/main.10b1c926.css.map",
+    "main.4897c9f9.js.map": "/SecondPage/static/js/main.4897c9f9.js.map",
+    "787.7d3d693b.chunk.js.map": "/SecondPage/static/js/787.7d3d693b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.10b1c926.css",
+    "static/js/main.4897c9f9.js"
+  ]
+}
