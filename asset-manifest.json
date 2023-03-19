@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/SecondPage/static/css/main.be80bac3.css",
-    "main.js": "/SecondPage/static/js/main.f08a6e7d.js",
+    "main.js": "/SecondPage/static/js/main.75e95386.js",
     "static/js/787.7d3d693b.chunk.js": "/SecondPage/static/js/787.7d3d693b.chunk.js",
     "static/media/Playas-1.jpg": "/SecondPage/static/media/Playas-1.14aa16cc0bed5ce16350.jpg",
     "static/media/undraw_real_time_collaboration_c62i.svg": "/SecondPage/static/media/undraw_real_time_collaboration_c62i.9dea6453825541663d5e47e688f78fdd.svg",
@@ -9,11 +9,11 @@
     "static/media/undraw_dashboard_re_3b76.svg": "/SecondPage/static/media/undraw_dashboard_re_3b76.686cbf8b4463b091f771f95b1852736f.svg",
     "index.html": "/SecondPage/index.html",
     "main.be80bac3.css.map": "/SecondPage/static/css/main.be80bac3.css.map",
-    "main.f08a6e7d.js.map": "/SecondPage/static/js/main.f08a6e7d.js.map",
+    "main.75e95386.js.map": "/SecondPage/static/js/main.75e95386.js.map",
     "787.7d3d693b.chunk.js.map": "/SecondPage/static/js/787.7d3d693b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.be80bac3.css",
-    "static/js/main.f08a6e7d.js"
+    "static/js/main.75e95386.js"
   ]
 }
