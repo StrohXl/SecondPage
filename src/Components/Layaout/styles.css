@@ -24,6 +24,7 @@ header {
 footer{
     height: 100px !important;
     background-color: #001529 !important;
+    color: #fff !important;
 }
 @media (min-width: 600px) {
     .ant-layout-content {

@@ -28,10 +28,9 @@ function App() {
 				<Route path="/SecondPage/List" element={
 
 					<List />} />
-				<Route path="/SecondPage/Login" element={
+				<Route path="/SecondPage/Login" element={<Login />} />
+				<Route path="/*" element={<NotFound/>} />
 
-					<Login />} />
-			
 			</Routes>
 		)
 	}
