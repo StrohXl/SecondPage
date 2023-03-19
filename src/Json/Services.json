@@ -3,73 +3,73 @@
         
         "key": 1,
         "title": "Alojamiento",
-        "img": "/Images/alojamiento.jpg",
+        "img": "./Images/alojamiento.jpg",
         "fecha": "2020-05-10"
     },
     {
         "key": 2,
         "title": "Traslado",
-        "img": "/Images/guia1.jpg",
+        "img": "./Images/guia1.jpg",
         "fecha": "2020-05-10"
     },
     {
         "key": 3,
         "title": "Alimentos",
-        "img": "/Images/comida4.jpg",
+        "img": "./Images/comida4.jpg",
         "fecha": "2020-05-10"
     },
     {
         "key": 4,
         "title": "Seguro de viajes",
-        "img": "/Images/GetImage.jpeg",
+        "img": "./Images/GetImage.jpeg",
         "fecha": "2020-05-10"
     },
     {
         "key": 5,
         "title": "Hidratacion",
-        "img": "/Images/Bebida.jpg",
+        "img": "./Images/Bebida.jpg",
         "fecha": "2020-05-10"
     },
     {
         "key": 6,
         "title": "Alquiler de botes",
-        "img": "/Images/playablanca_500x540.jpg",
+        "img": "./Images/playablanca_500x540.jpg",
         "fecha": "2020-05-10"
     },
     {
         "key": 7,
         "title": "Planificador de Bodas",
-        "img": "/Images/boda1.jpg",
+        "img": "./Images/boda1.jpg",
         "fecha": "2020-05-10"
     },
     {
         "key": 8,
         "title": "Excursiones",
-        "img": "/Images/arton4358.jpg",
+        "img": "./Images/arton4358.jpg",
         "fecha": "2020-05-10"
     },
     {
         "key": 9,
         "title": "Guia de turista",
-        "img": "/Images/amavcapacitara.jpg",
+        "img": "./Images/amavcapacitara.jpg",
         "fecha": "2020-05-10"
     },
     {
         "key": 10,
         "title": "Eventos",
-        "img": "/Images/evento1.jpg",
+        "img": "./Images/evento1.jpg",
         "fecha": "2020-05-10"
     },
     {
         "key": 11,
         "title": "Recreacion",
-        "img": "/Images/actividad4.jpg",
+        "img": "./Images/actividad4.jpg",
         "fecha": "2020-05-10"
     },
     {
         "key": 12,
         "title": "Buceo",
-        "img": "/Images/actividad6.jpg",
+        "img": "./Images/actividad6.jpg",
         "fecha": "2020-05-10"
     }
 ]

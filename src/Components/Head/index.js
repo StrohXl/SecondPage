@@ -1,42 +1,79 @@
 import React, { useState } from 'react';
-import { Menu, Typography } from 'antd'
+import { Drawer, Menu, Typography } from 'antd'
+import { Link } from 'react-router-dom';
 import './styles.css'
 import './responsive.css'
 import { useNavigate } from 'react-router-dom';
 import { GiHamburgerMenu } from 'react-icons/gi'
+import Cookies from 'js-cookie';
 const Head = () => {
     let navigate = useNavigate()
     const { Title } = Typography
+    const items = [
+
+        {
+            label: <Link to='/SecondPage/Services'>  Servicios</Link>,
+            key: 2
+        },
+        {
+            label: <Link to='/SecondPage/Packages'> Paquetes</Link>,
+            key: 3
+        },
+        {
+            label: <Link to='/SecondPage/List'>  Lista de reservaciones</Link>,
+            key: 4
+        },
+        {
+            label: <a href='/SecondPage/Login' onClick={() => Salir()}>  Salir</a>,
+            key: 5
+        },
+
+    ]
+    const itemsresponsive = [
+
+        {
+            label: <Link to='/SecondPage/Services' onClick={() => menuResponsive()}>  Servicios</Link>,
+            key: 2
+        },
+        {
+            label: <Link to='/SecondPage/Packages' onClick={() => menuResponsive()}> Paquetes</Link>,
+            key: 3
+        },
+        {
+            label: <Link to='/SecondPage/List' onClick={() => menuResponsive()}>  Lista de reservaciones</Link>,
+            key: 4
+        },
+        {
+            label: <a href='/SecondPage/Login' onClick={() => Salir()}>  Salir</a>,
+            key: 5
+        },
+
+    ]
     const [open, setOpen] = useState(false)
     const menuResponsive = () => {
         setOpen(!open)
     }
+    const Salir = () => {
+        Cookies.remove('key')
+    }
     return (
         <div className='Head'>
-            <Title level={3} className='titulo0'>Parque nacional <span className='titulo1'>MOCHIMA</span></Title>
-            <Menu className='Menu' theme='dark' mode="horizontal" defaultSelectedKeys={['mail']}>
-                <Menu.Item onClick={() => navigate('/SecondPage/')}>
-                    Inicio
-                </Menu.Item>
-                <Menu.Item onClick={() => navigate('/SecondPage/Services')} >
-
-                    Servicios
-                </Menu.Item>
-                <Menu.Item onClick={() => navigate('/SecondPage/Packages')}>
-                    Paquetes
-                </Menu.Item>
-                <Menu.Item onClick={() => navigate('/SecondPage/List')}>
-                    Lista de reservaciones
-                </Menu.Item>
-              
-            </Menu>
+            <h1 className='titulo1'>Crud
+                <span>
+                    Mochima
+                </span>
+            </h1>
+            <Menu className='Menu' theme='dark' mode="horizontal" items={items} />
             <GiHamburgerMenu className='burger' onClick={menuResponsive} />
-            <ul className={`menuResponsive ${open ? ' menuResponsiveOpen' : ''}`}>
-                <li className='menuItemResponsive' onClick={()=>{navigate('/SecondPage/'); setOpen(false)}}>Inicio</li>
-                <li className='menuItemResponsive' onClick={()=>{navigate('/SecondPage/Services'); setOpen(false)}}>Servicios</li>
-                <li className='menuItemResponsive' onClick={()=>{navigate('/SecondPage/Packages'); setOpen(false)}}>Paquetes</li>
-                <li className='menuItemResponsive' onClick={()=>{navigate('/SecondPage/List'); setOpen(false)}}>Lista de reservaciones</li>
-            </ul>
+            <Drawer width={250} bodyStyle={{ padding: '0', background: '#001529'}} headerStyle={{ display: 'none' }} open={open} onClose={menuResponsive}>
+                <h1 className='titulo1' style={{justifyContent: 'center'}}>Crud
+                    <span>
+                        Mochima
+                    </span>
+                </h1>
+                <Menu theme='dark'  className='Menu2'  mode="inline" items={itemsresponsive} />
+
+            </Drawer>
         </div>
 
     );

@@ -2,12 +2,12 @@
     {
         "key": 1,
         "paquete": "Paquete Estandar",
-        "img": "/Images/images2.jpeg",
+        "img": "./Images/images2.jpeg",
         "fecha": "2022-11-09"
     },
     {
         "key": 2,
-        "img": "/Images/images1.jpeg",
+        "img": "./Images/images1.jpeg",
         "paquete": "Paquete Especial",
         "fecha": "2022-11-09"
     },
@@ -15,6 +15,6 @@
         "key": 3,
         "paquete": "Paquete Completo",
         "fecha": "2022-11-09",
-        "img": "/Images/images4.jpeg"
+        "img": "./Images/images4.jpeg"
     }
 ]

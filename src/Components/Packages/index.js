@@ -1,15 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Button, Space, Avatar } from 'antd'
+import { Table, Button, Space, Avatar, Popconfirm, notification } from 'antd'
 import ModalPackages from '../Modal/modalPackages'
+import { Navigate } from 'react-router-dom';
 import './styles.css'
+import Cookies from 'js-cookie';
 import { LoadPackages, savePack, updatePackages } from './Packages'
 const Packages = () => {
+  const [ventana, setVentana] = useState()
+  const key = Cookies.get('key')
   const [data, setData] = useState([])
   const [item, setItem] = useState(null)
   const [open, setOpen] = useState(false)
   const [llave, setLlave] = useState(20)
   const Eliminar = (record) => {
     const auxData = data.filter((item) => item.key !== record.key)
+    notification.open({
+      message: 'Paquete Eliminado'
+    })
     setData(auxData)
   }
   const Editar = (record) => {
@@ -37,6 +44,10 @@ const Packages = () => {
     let ano = newFecha.getUTCFullYear()
     let hora = newFecha.getHours()
     let minutos = newFecha.getMinutes()
+    notification.open({
+      message: 'Nuevo Paquete Agregado',
+      description: <Space><Avatar size={30} src={newPackages.img} /> {newPackages.paquete}</Space>
+    })
     let segundos = newFecha.getSeconds()
     newPackages.fecha = `${ano}/${mes}/${dia}     ${hora}:${minutos}:${segundos}`
     newPackages.key = llave
@@ -46,6 +57,10 @@ const Packages = () => {
     })
     setData(auxData)
 
+  }
+  const WindowInner = () => {
+    const ventana = window.innerWidth
+    setVentana(ventana)
   }
   const SavePackages = async (payload) => {
     if (item === null) {
@@ -68,6 +83,9 @@ const Packages = () => {
     let hora = newFecha.getHours()
     let minutos = newFecha.getMinutes()
     let segundos = newFecha.getSeconds()
+    notification.open({
+      message: 'Paquete Editado'
+    })
     dataPackages.fecha = `${ano}/${mes}/${dia}     ${hora}:${minutos}:${segundos}`
     const auxData = [...data]
     const index = auxData.findIndex((item) => item.key === payload.key)
@@ -78,8 +96,12 @@ const Packages = () => {
     setData(auxData)
 
   }
-
-  useEffect(() => { LoadData() }, [])
+  useEffect(() => {
+    window.addEventListener('resize', () => WindowInner())
+    const ventana = window.innerWidth
+    setVentana(ventana)
+    LoadData();
+  }, []);
   const columns = [
     {
       title: "Vista",
@@ -87,7 +109,7 @@ const Packages = () => {
       width: '200px',
       dataIndex: 'imagen',
       render: (data, round) => (
-        <Avatar className='imagen' src={round.img} />
+        <Avatar size={64} src={round.img} />
       ),
     },
     {
@@ -106,27 +128,91 @@ const Packages = () => {
       key: "action",
       render: (_, record) => (
         <Space size="middle">
-          <Button type="link" block onClick={() => Editar(record)}>
+          <Button type="primary" block onClick={() => Editar(record)}>
             Editar
           </Button>
-          <Button type="link" block danger onClick={() => Eliminar(record)}>
+          <Popconfirm
+            title="Estas seguro de Eliminar este Paquete?"
+            onConfirm={() => Eliminar(record)}
+            okText="Si"
+            cancelText="No"
+          >
+             <Button type="primary" block danger >
             Eliminar
           </Button>
+          </Popconfirm>
+  
         </Space>
       ),
     }
   ]
-
-
+  const columnsResponsive1 = [
+    {
+      title: "Vista",
+      key: "imagen",
+      width: '200px',
+      dataIndex: 'imagen',
+      render: (data, round) => (
+        <Avatar size={64} src={round.img} />
+      ),
+    },
+    {
+      title: "Acciones",
+      key: "action",
+      render: (_, record) => (
+        <Space size="middle">
+          <Button type="primary" block onClick={() => Editar(record)}>
+            Editar
+          </Button>
+          <Popconfirm
+            title="Estas seguro de Eliminar este Paquete?"
+            onConfirm={() => Eliminar(record)}
+            okText="Si"
+            cancelText="No"
+          >
+             <Button type="primary" block danger >
+            Eliminar
+          </Button>
+          </Popconfirm>
+        </Space>
+      ),
+    },
+    Table.EXPAND_COLUMN,
+  ]
   return (
+    <>
+      {
+        key == undefined ?
+          <Navigate to='/SecondPage/Login' /> :
+          <Space size={'large'} direction='vertical' className='content-paquetes'>
+            <Button type='primary' onClick={showModal} className="Nuevo" >Nuevo Paquete</Button>
+            {ventana < 600 ?
 
-    <Space size={'large'} direction='vertical' className='content-paquetes'>
-      <Button onClick={showModal} className="Nuevo" >Nuevo Paquete</Button>
-      <Table columns={columns} dataSource={data} />
-      <ModalPackages cerrado={cancelModal} abierto={open} ok={SavePackages} employe={item} />
-    </Space>
+              <Table
+                columns={columnsResponsive1}
+                dataSource={data}
+                expandable={{
+                  expandedRowRender: (item) => (
+                    <>
+                      <tr>
+                        Paquete: {item.paquete}
+                      </tr>
+                      <tr>
+                        Fecha de modificacion: {item.fecha}
+                      </tr>
+                    </>
+                  ),
+                }} />
+              :
+              <Table columns={columns} dataSource={data} />
+
+            }
 
 
+            <ModalPackages cerrado={cancelModal} abierto={open} ok={SavePackages} employe={item} />
+          </Space>}
+
+    </>
 
   );
 };

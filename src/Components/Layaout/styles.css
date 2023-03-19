@@ -1,29 +1,32 @@
-footer{
+footer {
     width: 100% !important;
     text-align: center;
 }
-header{
-    position: fixed;
-    z-index: 10;
-    width: 100%;
+
+header {
+
+
 }
-.ant-layout-content{
-   width: 100% !important;
-   padding-top: 64px;
-    background-image: url(../../../public/Images/Playas-1.jpg);
-    background-size: 100% 100%;
-    background-attachment: fixed;
+
+.ant-layout-content {
+    background-color: #fff !important;
+    padding: 0 .5rem !important;
 }
-.content-crumb{
+
+.content-crumb {
     margin-left: 50px;
 }
-.Nuevo{
-    margin-left: 100px;
+
+
+.inicio {
+    min-height: calc(100vh - 70px) !important;
 }
-.inicio{
-    cursor: pointer !important;
-    height: 100%;
+footer{
+    height: 100px !important;
+    background-color: #001529 !important;
 }
-.inicio:hover{
-    color: #000 !important;
+@media (min-width: 600px) {
+    .ant-layout-content {
+        padding: 0 1rem !important;
+    }
 }

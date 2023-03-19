@@ -1,58 +1,81 @@
 import React, { useState } from 'react';
 import './styles.css'
-import { Space, Typography, Button, Modal, Row, Col } from 'antd'
-import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
+import { Space, Typography, Button, Modal, Row, Col, Card } from 'antd'
+import { Navigate, useNavigate } from 'react-router-dom';
+const { Meta } = Card;
 const { Title } = Typography
 const Welcome = () => {
-    const navigate = useNavigate()
-    const [open, setOpen] = useState(false)
-    const abrir = () => {
-        setOpen(true)
-    }
-    const cerrar = () => {
-        setOpen(false)
-    }
+    const key = Cookies.get('key')
+    const [see, setSee] = useState(false)
+    const [card, setCard] = useState(false)
+    const CardInfo = [
+        {
+            title: 'Ultimo Servicio Agregado',
+            description: 'jkalsjdfk'
+        },
+        {
+            title: 'Ultimo Paquete Agregado',
+            description: 'jkalsjdfk'
+        },
+        {
+            title: 'Ultima Persona Agregada',
+            description: 'jkalsjdfk'
+        },
+        {
+            title: 'Ultimo Servicio Modificado',
+            description: 'jkalsjdfk'
+        },
+        {
+            title: 'Ultimo Paquete Modificado',
+            description: 'jkalsjdfk'
+        },
+        {
+            title: 'Ultima Persona Modificada',
+            description: 'xavier -> John'
+        },
+        {
+            title: 'Ultimo Paquete Modificado',
+            description: 'jkalsjdfk'
+        },
+        {
+            title: 'Ultima Persona Modificada',
+            description: 'xavier -> John'
+        }
+    ]
+    setTimeout(() => { setSee(true) }, 1500)
+    setTimeout(() => { setCard(true) }, 2000)
     return (
-        <div className='welcome'>
-            <Space direction={'vertical'} className='content-title'>
-                <Title>Bienvenido al dashboard de Parque nacional mochima</Title>
-                <div className='welcomeResponsive'>
-                    <Title level={4}>Para iniciar la gestion de los archivos presione aqui </Title>
-                    <Button shape='round' className='iniciar' onClick={abrir}>Iniciar</Button>
-                    <Modal className='modalWelcome'
-                        open={open}
-                        onCancel={cerrar}
-                        okText='hola'
-                        footer={null}
-                        title='Seleccione una opcion'
-                    >
-                    
-                        <Row justify='around'>
-                            <Col className='welcomeCol' span={7}>
-                                <Button shape='round' onClick={() => { setOpen(false); navigate('/SecondPage/Services') }} >
-                                    Servicios
-                                </Button>
-                            </Col>
-                            <Col className='welcomeCol' span={10}>
-                                <Button shape='round' onClick={() => { setOpen(false); navigate('/SecondPage/List') }} >
-                                    Lista de reservaciones
-                                </Button>
-                            </Col>
-                    
-                            <Col className='welcomeCol' span={7}>
-                                <Button shape='round' onClick={() => { setOpen(false); navigate('/SecondPage/Packages') }}>
-                                    Paquetes
-                                </Button>
-                            </Col>
+        <>
+            {
+                key == undefined ?
+                    <Navigate to='/SecondPage/Login' /> :
+                    <div className='welcome'>
+                        <div className={`content-title-welcome ${see ? ' content-title-welcome-active' : ''}`}>
+                            <h1>
+                                Bienvenido!
+                            </h1>
+                        </div>
+                        <Row justify={'space-around'}  gutter={[16, 16]}  wrap >
+                            {CardInfo.map((i, index) => {
+                                return (
+                                    <Col key={index} >
+                                        <Card 
+                                    
+                                        hoverable title={i.title} 
+                                        className={`welcome-row-col-card ${card? ' welcome-row-col-card-active':''}`}>
+                                            <Meta description={i.description} />
+                                        </Card>
+                                    </Col>
+                                )
+                            })}
                         </Row>
-                    
-                    
-                    </Modal>
-                    
-                </div>            </Space>
+                    </div>
+            }
+
+        </>
 
 
-        </div>
     );
 };
 

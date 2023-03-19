@@ -1,0 +1,186 @@
+.login {
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(#00000088, #000), url(../Images/Playas-1.jpg);
+    background-size: 100% 100%
+}
+.login .row {
+    border-radius: 4px;
+    background: #fff;
+    width: 100%;
+}
+.login .col-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100% ;
+    padding-bottom: 5rem;
+    background: linear-gradient(#00000088, #000), url(../Images/Playas-1.jpg);
+
+}
+
+
+.login .col-info {
+    width: 200px !important;
+    flex-grow: 1;
+    background: #001529 !important;
+}
+
+.content-form {
+    height: 100% !important;
+    padding: 1rem ;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.content-form form {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.content-form .ant-input-affix-wrapper svg {
+    font-size: 1rem;
+    margin-right: .5rem;
+}
+
+.content-form .ant-input-affix-wrapper-focused {
+    color: #1890ff !important;
+    border-bottom: 1px solid #1890ff !important;
+}
+
+
+.content-form-title {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    font-weight: 600;
+    display: flex;
+    gap: .5rem;
+    justify-content: center;
+    font-size: 1.8rem;
+}
+.element1{ 
+    color: #fff !important;
+    margin-top: 1rem;
+    font-size: .8rem;
+    font-weight: bold;
+}
+.element3{ 
+    color: #fff !important;
+    font-size: .5rem;
+    display: flex;
+    gap: 10px;
+
+}
+.element3 div{
+    width: 90px !important;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: .4rem;
+}
+.element1__icon{
+    color: #fff !important;
+    font-size: 1rem;
+    margin-left: .4rem;
+    font-weight: bold;
+    color: #000;
+}
+.content-form-title span:first-child {
+    color: #fff !important;
+
+}
+
+.content-form-title span:last-child {
+    color: #1890ff !important;
+    font-weight: bold;
+}
+
+.content-form-title-p2 {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.content-form button {
+    margin-top: 1rem;
+    width: 100% !important;
+
+}
+@media(min-width:600px) {
+    .content-form {
+    width: 60%;
+    }
+    .content-form-title {
+        font-size: 2.5rem;
+    }
+    .element3 div{
+        width: 110px !important;
+        margin: auto;
+    }
+    .login .col-form {
+        
+
+    }
+    
+}
+
+@media(min-width:900px) {
+    .element3 div{
+        width: 90px !important;
+        
+    }
+    .login .col-info {
+        height: 100% !important;
+
+    }
+    
+    .login {
+        height: 100vh;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(#00000088, #000), url(../Images/Playas-1.jpg);
+        background-size: 100% 100%
+    }
+    
+    .login .row {
+        border-radius: 4px;
+        background: #fff;
+        width: 90%;
+        height: 80% !important;
+    }
+    .content-form button {
+        margin-top: .5rem;
+    
+    }
+    .element3{
+        font-size: .5rem;
+        display: flex;
+        gap: 10px;
+    
+    }
+    .content-form {
+        width: 350px; 
+        
+    }
+    .login .col-form {
+        width: 350px;
+        padding-bottom: 0;
+    
+    }
+    .element3{
+        font-size: .7rem;
+    
+    }
+    .content-form-title {
+        margin-top: 1.25rem;
+        margin-bottom: 1.25rem;
+    }
+    
+}
+@media(min-width:1200px) {
+
+}
+
+@media(min-width:1600px) {}

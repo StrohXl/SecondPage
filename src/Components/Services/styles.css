@@ -1,6 +1,6 @@
 .content-servicios{
     width: 100% !important;
-    min-height: 480px;
+    min-height: calc(100vh - 60px) !important;
 }
 .imagen{
     height: 85px !important;
@@ -9,4 +9,7 @@
 .imagenSeleccionada{
     width: 100px !important;
     height: 100px !important;
+}
+.ant-table-content{
+    overflow: auto !important;
 }

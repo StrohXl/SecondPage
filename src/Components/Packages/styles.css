@@ -1,4 +1,7 @@
 .content-paquetes{
     width: 100% !important;
-    height: 480px;
+    min-height: calc(100vh - 60px) !important;
+}
+.ant-table-content{
+    overflow: auto !important;
 }

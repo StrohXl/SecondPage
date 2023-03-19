@@ -100,6 +100,7 @@ const ModalServices = ({ abierto, cerrado, employe, ok }) => {
         </Form.Item>
         <Form.Item label="Seleccione una imagen">
           <Upload
+            style={{marginTop: '1rem'}}
             name="avatar"
             listType="picture-card"
             className="avatar-uploader"
@@ -114,6 +115,7 @@ const ModalServices = ({ abierto, cerrado, employe, ok }) => {
                 alt="avatar"
                 style={{
                   width: '100%',
+                  height: '50px'
                 }}
               />
             ) : (
